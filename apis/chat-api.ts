@@ -82,12 +82,17 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Returns chats. Each of these properties is optional.
          * @summary Find Chats
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findChats: async (instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        findChats: async (apikey: string, instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'apikey' is not null or undefined
+            if (apikey === null || apikey === undefined) {
+                throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling findChats.');
+            }
             // verify required parameter 'instance' is not null or undefined
             if (instance === null || instance === undefined) {
                 throw new RequiredError('instance','Required parameter instance was null or undefined when calling findChats.');
@@ -103,6 +108,10 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (apikey !== undefined && apikey !== null) {
+                localVarHeaderParameter['apikey'] = String(apikey);
+            }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -235,12 +244,17 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
         /**
          * Returns the status of updated messages.
          * @summary Find Status Message
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findStatusMessage: async (instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        findStatusMessage: async (apikey: string, instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'apikey' is not null or undefined
+            if (apikey === null || apikey === undefined) {
+                throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling findStatusMessage.');
+            }
             // verify required parameter 'instance' is not null or undefined
             if (instance === null || instance === undefined) {
                 throw new RequiredError('instance','Required parameter instance was null or undefined when calling findStatusMessage.');
@@ -256,6 +270,10 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (apikey !== undefined && apikey !== null) {
+                localVarHeaderParameter['apikey'] = String(apikey);
+            }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -358,13 +376,14 @@ export const ChatApiFp = function(configuration?: Configuration) {
         /**
          * Returns chats. Each of these properties is optional.
          * @summary Find Chats
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>> {
-            const localVarAxiosArgs = await ChatApiAxiosParamCreator(configuration).findChats(instance, body, options);
+        async findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>> {
+            const localVarAxiosArgs = await ChatApiAxiosParamCreator(configuration).findChats(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -405,13 +424,14 @@ export const ChatApiFp = function(configuration?: Configuration) {
         /**
          * Returns the status of updated messages.
          * @summary Find Status Message
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findStatusMessage(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
-            const localVarAxiosArgs = await ChatApiAxiosParamCreator(configuration).findStatusMessage(instance, body, options);
+        async findStatusMessage(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>> {
+            const localVarAxiosArgs = await ChatApiAxiosParamCreator(configuration).findStatusMessage(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -456,13 +476,14 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Returns chats. Each of these properties is optional.
          * @summary Find Chats
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>> {
-            return ChatApiFp(configuration).findChats(instance, body, options).then((request) => request(axios, basePath));
+        async findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>> {
+            return ChatApiFp(configuration).findChats(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
         /**
          * Find Contacts
@@ -491,13 +512,14 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
         /**
          * Returns the status of updated messages.
          * @summary Find Status Message
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findStatusMessage(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
-            return ChatApiFp(configuration).findStatusMessage(instance, body, options).then((request) => request(axios, basePath));
+        async findStatusMessage(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<void>> {
+            return ChatApiFp(configuration).findStatusMessage(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
         /**
          * Read Messages
@@ -536,14 +558,15 @@ export class ChatApi extends BaseAPI {
     /**
      * Returns chats. Each of these properties is optional.
      * @summary Find Chats
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    public async findChats(instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<InlineResponse2002>>> {
-        return ChatApiFp(this.configuration).findChats(instance, body, options).then((request) => request(this.axios, this.basePath));
+    public async findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<InlineResponse2002>>> {
+        return ChatApiFp(this.configuration).findChats(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Find Contacts
@@ -574,14 +597,15 @@ export class ChatApi extends BaseAPI {
     /**
      * Returns the status of updated messages.
      * @summary Find Status Message
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    public async findStatusMessage(instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
-        return ChatApiFp(this.configuration).findStatusMessage(instance, body, options).then((request) => request(this.axios, this.basePath));
+    public async findStatusMessage(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<void>> {
+        return ChatApiFp(this.configuration).findStatusMessage(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Read Messages

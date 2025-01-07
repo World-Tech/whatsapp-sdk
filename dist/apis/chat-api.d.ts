@@ -34,12 +34,13 @@ export declare const ChatApiAxiosParamCreator: (configuration?: Configuration) =
     /**
      * Returns chats. Each of these properties is optional.
      * @summary Find Chats
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findChats: (instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    findChats: (apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -63,12 +64,13 @@ export declare const ChatApiAxiosParamCreator: (configuration?: Configuration) =
     /**
      * Returns the status of updated messages.
      * @summary Find Status Message
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findStatusMessage: (instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    findStatusMessage: (apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Read Messages
      * @summary Read Messages
@@ -97,12 +99,13 @@ export declare const ChatApiFp: (configuration?: Configuration) => {
     /**
      * Returns chats. Each of these properties is optional.
      * @summary Find Chats
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>>;
+    findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -126,12 +129,13 @@ export declare const ChatApiFp: (configuration?: Configuration) => {
     /**
      * Returns the status of updated messages.
      * @summary Find Status Message
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findStatusMessage(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
+    findStatusMessage(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<void>>>;
     /**
      * Read Messages
      * @summary Read Messages
@@ -160,12 +164,13 @@ export declare const ChatApiFactory: (configuration?: Configuration, basePath?: 
     /**
      * Returns chats. Each of these properties is optional.
      * @summary Find Chats
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
+    findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -189,12 +194,13 @@ export declare const ChatApiFactory: (configuration?: Configuration, basePath?: 
     /**
      * Returns the status of updated messages.
      * @summary Find Status Message
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findStatusMessage(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    findStatusMessage(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
     /**
      * Read Messages
      * @summary Read Messages
@@ -226,13 +232,14 @@ export declare class ChatApi extends BaseAPI {
     /**
      * Returns chats. Each of these properties is optional.
      * @summary Find Chats
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
+    findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -258,13 +265,14 @@ export declare class ChatApi extends BaseAPI {
     /**
      * Returns the status of updated messages.
      * @summary Find Status Message
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    findStatusMessage(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
+    findStatusMessage(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<void>>;
     /**
      * Read Messages
      * @summary Read Messages

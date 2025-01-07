@@ -138,16 +138,21 @@ exports.ChatApiAxiosParamCreator = function (configuration) {
         /**
          * Returns chats. Each of these properties is optional.
          * @summary Find Chats
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findChats: function (instance, body, options) {
+        findChats: function (apikey, instance, body, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions, needsSerialization;
                 return __generator(this, function (_a) {
+                    // verify required parameter 'apikey' is not null or undefined
+                    if (apikey === null || apikey === undefined) {
+                        throw new base_1.RequiredError('apikey', 'Required parameter apikey was null or undefined when calling findChats.');
+                    }
                     // verify required parameter 'instance' is not null or undefined
                     if (instance === null || instance === undefined) {
                         throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling findChats.');
@@ -161,6 +166,9 @@ exports.ChatApiAxiosParamCreator = function (configuration) {
                     localVarRequestOptions = __assign(__assign({ method: 'POST' }, baseOptions), options);
                     localVarHeaderParameter = {};
                     localVarQueryParameter = {};
+                    if (apikey !== undefined && apikey !== null) {
+                        localVarHeaderParameter['apikey'] = String(apikey);
+                    }
                     localVarHeaderParameter['Content-Type'] = 'application/json';
                     query = new URLSearchParams(localVarUrlObj.search);
                     for (key in localVarQueryParameter) {
@@ -292,16 +300,21 @@ exports.ChatApiAxiosParamCreator = function (configuration) {
         /**
          * Returns the status of updated messages.
          * @summary Find Status Message
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findStatusMessage: function (instance, body, options) {
+        findStatusMessage: function (apikey, instance, body, options) {
             if (options === void 0) { options = {}; }
             return __awaiter(_this, void 0, void 0, function () {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions, needsSerialization;
                 return __generator(this, function (_a) {
+                    // verify required parameter 'apikey' is not null or undefined
+                    if (apikey === null || apikey === undefined) {
+                        throw new base_1.RequiredError('apikey', 'Required parameter apikey was null or undefined when calling findStatusMessage.');
+                    }
                     // verify required parameter 'instance' is not null or undefined
                     if (instance === null || instance === undefined) {
                         throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling findStatusMessage.');
@@ -315,6 +328,9 @@ exports.ChatApiAxiosParamCreator = function (configuration) {
                     localVarRequestOptions = __assign(__assign({ method: 'POST' }, baseOptions), options);
                     localVarHeaderParameter = {};
                     localVarQueryParameter = {};
+                    if (apikey !== undefined && apikey !== null) {
+                        localVarHeaderParameter['apikey'] = String(apikey);
+                    }
                     localVarHeaderParameter['Content-Type'] = 'application/json';
                     query = new URLSearchParams(localVarUrlObj.search);
                     for (key in localVarQueryParameter) {
@@ -426,17 +442,18 @@ exports.ChatApiFp = function (configuration) {
         /**
          * Returns chats. Each of these properties is optional.
          * @summary Find Chats
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findChats: function (instance, body, options) {
+        findChats: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, exports.ChatApiAxiosParamCreator(configuration).findChats(instance, body, options)];
+                        case 0: return [4 /*yield*/, exports.ChatApiAxiosParamCreator(configuration).findChats(apikey, instance, body, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -506,17 +523,18 @@ exports.ChatApiFp = function (configuration) {
         /**
          * Returns the status of updated messages.
          * @summary Find Status Message
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findStatusMessage: function (instance, body, options) {
+        findStatusMessage: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, exports.ChatApiAxiosParamCreator(configuration).findStatusMessage(instance, body, options)];
+                        case 0: return [4 /*yield*/, exports.ChatApiAxiosParamCreator(configuration).findStatusMessage(apikey, instance, body, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -582,15 +600,16 @@ exports.ChatApiFactory = function (configuration, basePath, axios) {
         /**
          * Returns chats. Each of these properties is optional.
          * @summary Find Chats
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findChats: function (instance, body, options) {
+        findChats: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, exports.ChatApiFp(configuration).findChats(instance, body, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, exports.ChatApiFp(configuration).findChats(apikey, instance, body, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -629,15 +648,16 @@ exports.ChatApiFactory = function (configuration, basePath, axios) {
         /**
          * Returns the status of updated messages.
          * @summary Find Status Message
+         * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
          * @param {any} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findStatusMessage: function (instance, body, options) {
+        findStatusMessage: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, exports.ChatApiFp(configuration).findStatusMessage(instance, body, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, exports.ChatApiFp(configuration).findStatusMessage(apikey, instance, body, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -690,17 +710,18 @@ var ChatApi = /** @class */ (function (_super) {
     /**
      * Returns chats. Each of these properties is optional.
      * @summary Find Chats
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    ChatApi.prototype.findChats = function (instance, body, options) {
+    ChatApi.prototype.findChats = function (apikey, instance, body, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, exports.ChatApiFp(this.configuration).findChats(instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, exports.ChatApiFp(this.configuration).findChats(apikey, instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
@@ -743,17 +764,18 @@ var ChatApi = /** @class */ (function (_super) {
     /**
      * Returns the status of updated messages.
      * @summary Find Status Message
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    ChatApi.prototype.findStatusMessage = function (instance, body, options) {
+    ChatApi.prototype.findStatusMessage = function (apikey, instance, body, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, exports.ChatApiFp(this.configuration).findStatusMessage(instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, exports.ChatApiFp(this.configuration).findStatusMessage(apikey, instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

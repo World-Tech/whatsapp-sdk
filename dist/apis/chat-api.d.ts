@@ -15,6 +15,7 @@ import { RequestArgs, BaseAPI } from '../base';
 import { ContactDto } from '../models';
 import { InlineResponse200 } from '../models';
 import { InlineResponse2001 } from '../models';
+import { InlineResponse2002 } from '../models';
 import { InlineResponse201 } from '../models';
 /**
  * ChatApi - axios parameter creator
@@ -30,6 +31,15 @@ export declare const ChatApiAxiosParamCreator: (configuration?: Configuration) =
      * @throws {RequiredError}
      */
     checkIsWhatsAppNumber: (apikey: string, instance: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Returns chats. Each of these properties is optional.
+     * @summary Find Chats
+     * @param {string} instance Name of instance
+     * @param {any} [body]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findChats: (instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -85,6 +95,15 @@ export declare const ChatApiFp: (configuration?: Configuration) => {
      */
     checkIsWhatsAppNumber(apikey: string, instance: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse200>>>>;
     /**
+     * Returns chats. Each of these properties is optional.
+     * @summary Find Chats
+     * @param {string} instance Name of instance
+     * @param {any} [body]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>>;
+    /**
      * Find Contacts
      * @summary Find Contacts
      * @param {string} apikey apikey from .env
@@ -138,6 +157,15 @@ export declare const ChatApiFactory: (configuration?: Configuration, basePath?: 
      * @throws {RequiredError}
      */
     checkIsWhatsAppNumber(apikey: string, instance: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse200>>>;
+    /**
+     * Returns chats. Each of these properties is optional.
+     * @summary Find Chats
+     * @param {string} instance Name of instance
+     * @param {any} [body]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -195,6 +223,16 @@ export declare class ChatApi extends BaseAPI {
      * @memberof ChatApi
      */
     checkIsWhatsAppNumber(apikey: string, instance: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse200>>>;
+    /**
+     * Returns chats. Each of these properties is optional.
+     * @summary Find Chats
+     * @param {string} instance Name of instance
+     * @param {any} [body]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatApi
+     */
+    findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
     /**
      * Find Contacts
      * @summary Find Contacts

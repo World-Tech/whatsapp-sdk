@@ -136,6 +136,52 @@ exports.ChatApiAxiosParamCreator = function (configuration) {
             });
         },
         /**
+         * Returns chats. Each of these properties is optional.
+         * @summary Find Chats
+         * @param {string} instance Name of instance
+         * @param {any} [body]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        findChats: function (instance, body, options) {
+            if (options === void 0) { options = {}; }
+            return __awaiter(_this, void 0, void 0, function () {
+                var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions, needsSerialization;
+                return __generator(this, function (_a) {
+                    // verify required parameter 'instance' is not null or undefined
+                    if (instance === null || instance === undefined) {
+                        throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling findChats.');
+                    }
+                    localVarPath = "/chat/findChats/{instance}"
+                        .replace("{" + "instance" + "}", encodeURIComponent(String(instance)));
+                    localVarUrlObj = new URL(localVarPath, 'https://example.com');
+                    if (configuration) {
+                        baseOptions = configuration.baseOptions;
+                    }
+                    localVarRequestOptions = __assign(__assign({ method: 'POST' }, baseOptions), options);
+                    localVarHeaderParameter = {};
+                    localVarQueryParameter = {};
+                    localVarHeaderParameter['Content-Type'] = 'application/json';
+                    query = new URLSearchParams(localVarUrlObj.search);
+                    for (key in localVarQueryParameter) {
+                        query.set(key, localVarQueryParameter[key]);
+                    }
+                    for (key in options.params) {
+                        query.set(key, options.params[key]);
+                    }
+                    localVarUrlObj.search = (new URLSearchParams(query)).toString();
+                    headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+                    localVarRequestOptions.headers = __assign(__assign(__assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+                    needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+                    localVarRequestOptions.data = needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
+                    return [2 /*return*/, {
+                            url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                            options: localVarRequestOptions,
+                        }];
+                });
+            });
+        },
+        /**
          * Find Contacts
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
@@ -378,6 +424,32 @@ exports.ChatApiFp = function (configuration) {
             });
         },
         /**
+         * Returns chats. Each of these properties is optional.
+         * @summary Find Chats
+         * @param {string} instance Name of instance
+         * @param {any} [body]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        findChats: function (instance, body, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                var localVarAxiosArgs;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, exports.ChatApiAxiosParamCreator(configuration).findChats(instance, body, options)];
+                        case 1:
+                            localVarAxiosArgs = _a.sent();
+                            return [2 /*return*/, function (axios, basePath) {
+                                    if (axios === void 0) { axios = axios_1.default; }
+                                    if (basePath === void 0) { basePath = base_1.BASE_PATH; }
+                                    var axiosRequestArgs = __assign(__assign({}, localVarAxiosArgs.options), { url: basePath + localVarAxiosArgs.url });
+                                    return axios.request(axiosRequestArgs);
+                                }];
+                    }
+                });
+            });
+        },
+        /**
          * Find Contacts
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
@@ -508,6 +580,21 @@ exports.ChatApiFactory = function (configuration, basePath, axios) {
             });
         },
         /**
+         * Returns chats. Each of these properties is optional.
+         * @summary Find Chats
+         * @param {string} instance Name of instance
+         * @param {any} [body]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        findChats: function (instance, body, options) {
+            return __awaiter(this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    return [2 /*return*/, exports.ChatApiFp(configuration).findChats(instance, body, options).then(function (request) { return request(axios, basePath); })];
+                });
+            });
+        },
+        /**
          * Find Contacts
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
@@ -597,6 +684,23 @@ var ChatApi = /** @class */ (function (_super) {
             var _this = this;
             return __generator(this, function (_a) {
                 return [2 /*return*/, exports.ChatApiFp(this.configuration).checkIsWhatsAppNumber(apikey, instance, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+            });
+        });
+    };
+    /**
+     * Returns chats. Each of these properties is optional.
+     * @summary Find Chats
+     * @param {string} instance Name of instance
+     * @param {any} [body]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatApi
+     */
+    ChatApi.prototype.findChats = function (instance, body, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                return [2 /*return*/, exports.ChatApiFp(this.configuration).findChats(instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

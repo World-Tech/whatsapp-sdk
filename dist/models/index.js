@@ -11,6 +11,10 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./contact-dto"), exports);
+__exportStar(require("./hydrated-button-dto"), exports);
+__exportStar(require("./hydrated-four-row-template-dto"), exports);
+__exportStar(require("./hydrated-template-dto"), exports);
+__exportStar(require("./image-message-dto"), exports);
 __exportStar(require("./inline-response200"), exports);
 __exportStar(require("./inline-response2001"), exports);
 __exportStar(require("./inline-response2001-messages"), exports);
@@ -21,10 +25,17 @@ __exportStar(require("./inline-response2001-messages-message-image-message-conte
 __exportStar(require("./inline-response2001-messages-message-text"), exports);
 __exportStar(require("./inline-response2001-messages-message-video-message"), exports);
 __exportStar(require("./inline-response2001-messages-records"), exports);
+__exportStar(require("./inline-response2002"), exports);
 __exportStar(require("./inline-response201"), exports);
 __exportStar(require("./inline-response2-xx"), exports);
 __exportStar(require("./inline-response500"), exports);
 __exportStar(require("./inline-response500-response"), exports);
+__exportStar(require("./key-dto"), exports);
+__exportStar(require("./last-message-dto"), exports);
+__exportStar(require("./message-context-info-dto"), exports);
+__exportStar(require("./message-dto"), exports);
+__exportStar(require("./quick-reply-button-dto"), exports);
+__exportStar(require("./template-message-dto"), exports);
 __exportStar(require("./where-find-contacts-dto"), exports);
 __exportStar(require("./where-find-contacts-dto-where"), exports);
 __exportStar(require("./where-find-messages-dto"), exports);

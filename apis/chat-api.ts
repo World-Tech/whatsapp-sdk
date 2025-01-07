@@ -20,6 +20,7 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 import { ContactDto } from '../models';
 import { InlineResponse200 } from '../models';
 import { InlineResponse2001 } from '../models';
+import { InlineResponse2002 } from '../models';
 import { InlineResponse201 } from '../models';
 import { InlineResponse2XX } from '../models';
 import { InlineResponse500 } from '../models';
@@ -72,6 +73,51 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
             localVarUrlObj.search = (new URLSearchParams(query)).toString();
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns chats. Each of these properties is optional.
+         * @summary Find Chats
+         * @param {string} instance Name of instance
+         * @param {any} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        findChats: async (instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'instance' is not null or undefined
+            if (instance === null || instance === undefined) {
+                throw new RequiredError('instance','Required parameter instance was null or undefined when calling findChats.');
+            }
+            const localVarPath = `/chat/findChats/{instance}`
+                .replace(`{${"instance"}}`, encodeURIComponent(String(instance)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, 'https://example.com');
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            const query = new URLSearchParams(localVarUrlObj.search);
+            for (const key in localVarQueryParameter) {
+                query.set(key, localVarQueryParameter[key]);
+            }
+            for (const key in options.params) {
+                query.set(key, options.params[key]);
+            }
+            localVarUrlObj.search = (new URLSearchParams(query)).toString();
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            const needsSerialization = (typeof body !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.data =  needsSerialization ? JSON.stringify(body !== undefined ? body : {}) : (body || "");
 
             return {
                 url: localVarUrlObj.pathname + localVarUrlObj.search + localVarUrlObj.hash,
@@ -310,6 +356,21 @@ export const ChatApiFp = function(configuration?: Configuration) {
             };
         },
         /**
+         * Returns chats. Each of these properties is optional.
+         * @summary Find Chats
+         * @param {string} instance Name of instance
+         * @param {any} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>> {
+            const localVarAxiosArgs = await ChatApiAxiosParamCreator(configuration).findChats(instance, body, options);
+            return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+                const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
+                return axios.request(axiosRequestArgs);
+            };
+        },
+        /**
          * Find Contacts
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
@@ -393,6 +454,17 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
             return ChatApiFp(configuration).checkIsWhatsAppNumber(apikey, instance, options).then((request) => request(axios, basePath));
         },
         /**
+         * Returns chats. Each of these properties is optional.
+         * @summary Find Chats
+         * @param {string} instance Name of instance
+         * @param {any} [body] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async findChats(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>> {
+            return ChatApiFp(configuration).findChats(instance, body, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Find Contacts
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
@@ -460,6 +532,18 @@ export class ChatApi extends BaseAPI {
      */
     public async checkIsWhatsAppNumber(apikey: string, instance: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<InlineResponse200>>> {
         return ChatApiFp(this.configuration).checkIsWhatsAppNumber(apikey, instance, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Returns chats. Each of these properties is optional.
+     * @summary Find Chats
+     * @param {string} instance Name of instance
+     * @param {any} [body] 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ChatApi
+     */
+    public async findChats(instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<InlineResponse2002>>> {
+        return ChatApiFp(this.configuration).findChats(instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Find Contacts

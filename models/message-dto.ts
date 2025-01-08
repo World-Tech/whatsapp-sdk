@@ -12,8 +12,11 @@
  * Do not edit the class manually.
  */
 
+import { AudioMessageDto } from './audio-message-dto';
+import { ImageMessageDto } from './image-message-dto';
 import { MessageContextInfoDto } from './message-context-info-dto';
 import { TemplateMessageDto } from './template-message-dto';
+import { VideoMessageDto } from './video-message-dto';
  /**
  * 
  *
@@ -39,4 +42,22 @@ export interface MessageDto {
      * @memberof MessageDto
      */
     messageContextInfo?: MessageContextInfoDto;
+
+    /**
+     * @type {AudioMessageDto}
+     * @memberof MessageDto
+     */
+    audioMessage?: AudioMessageDto;
+
+    /**
+     * @type {ImageMessageDto}
+     * @memberof MessageDto
+     */
+    imageMessage?: ImageMessageDto;
+
+    /**
+     * @type {VideoMessageDto}
+     * @memberof MessageDto
+     */
+    videoMessage?: VideoMessageDto;
 }

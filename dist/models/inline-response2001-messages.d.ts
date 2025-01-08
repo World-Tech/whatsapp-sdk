@@ -9,7 +9,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { InlineResponse2001MessagesRecords } from './inline-response2001-messages-records';
+import { RecordMessageDto } from './record-message-dto';
 /**
 *
 *
@@ -33,8 +33,8 @@ export interface InlineResponse2001Messages {
      */
     currentPage?: number;
     /**
-     * @type {Array<InlineResponse2001MessagesRecords>}
+     * @type {Array<RecordMessageDto>}
      * @memberof InlineResponse2001Messages
      */
-    records?: Array<InlineResponse2001MessagesRecords>;
+    records?: Array<RecordMessageDto>;
 }

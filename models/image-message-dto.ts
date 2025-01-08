@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { ContextInfoDto } from './context-info-dto';
  /**
  * 
  *
@@ -42,12 +43,6 @@ export interface ImageMessageDto {
      * @type {string}
      * @memberof ImageMessageDto
      */
-    caption?: string;
-
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
-     */
     mediaKey?: string;
 
     /**
@@ -55,6 +50,12 @@ export interface ImageMessageDto {
      * @memberof ImageMessageDto
      */
     mimetype?: string;
+
+    /**
+     * @type {boolean}
+     * @memberof ImageMessageDto
+     */
+    viewOnce?: boolean;
 
     /**
      * @type {string}
@@ -75,6 +76,12 @@ export interface ImageMessageDto {
     fileSha256?: string;
 
     /**
+     * @type {ContextInfoDto}
+     * @memberof ImageMessageDto
+     */
+    contextInfo?: ContextInfoDto;
+
+    /**
      * @type {string}
      * @memberof ImageMessageDto
      */
@@ -84,23 +91,11 @@ export interface ImageMessageDto {
      * @type {string}
      * @memberof ImageMessageDto
      */
-    thumbnailSha256?: string;
+    jpegThumbnail?: string;
 
     /**
      * @type {string}
      * @memberof ImageMessageDto
      */
     mediaKeyTimestamp?: string;
-
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
-     */
-    thumbnailEncSha256?: string;
-
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
-     */
-    thumbnailDirectPath?: string;
 }

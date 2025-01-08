@@ -1,3 +1,5 @@
+/* tslint:disable */
+/* eslint-disable */
 /**
  * whatsapp-api
  * Endpoints de whatsapp-api
@@ -9,77 +11,109 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 import { ContextInfoDto } from './context-info-dto';
-/**
-*
-*
-* @export
-* @interface ImageMessageDto
-*/
-export interface ImageMessageDto {
+ /**
+ * 
+ *
+ * @export
+ * @interface VideoMessageDto
+ */
+export interface VideoMessageDto {
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     url?: string;
+
     /**
      * @type {number}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     width?: number;
+
     /**
      * @type {number}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     height?: number;
+
+    /**
+     * @type {number}
+     * @memberof VideoMessageDto
+     */
+    seconds?: number;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     mediaKey?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     mimetype?: string;
+
     /**
      * @type {boolean}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     viewOnce?: boolean;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     directPath?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     fileLength?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     fileSha256?: string;
+
     /**
      * @type {ContextInfoDto}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     contextInfo?: ContextInfoDto;
+
+    /**
+     * @type {boolean}
+     * @memberof VideoMessageDto
+     */
+    gifPlayback?: boolean;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     fileEncSha256?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
      */
     jpegThumbnail?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof VideoMessageDto
+     */
+    gifAttribution?: string;
+
+    /**
+     * @type {string}
+     * @memberof VideoMessageDto
      */
     mediaKeyTimestamp?: string;
 }

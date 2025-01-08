@@ -1,3 +1,5 @@
+/* tslint:disable */
+/* eslint-disable */
 /**
  * whatsapp-api
  * Endpoints de whatsapp-api
@@ -9,77 +11,91 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+
 import { ContextInfoDto } from './context-info-dto';
-/**
-*
-*
-* @export
-* @interface ImageMessageDto
-*/
-export interface ImageMessageDto {
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
-     */
-    url?: string;
-    /**
-     * @type {number}
-     * @memberof ImageMessageDto
-     */
-    width?: number;
-    /**
-     * @type {number}
-     * @memberof ImageMessageDto
-     */
-    height?: number;
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
-     */
-    mediaKey?: string;
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
-     */
-    mimetype?: string;
+ /**
+ * 
+ *
+ * @export
+ * @interface AudioMessageDto
+ */
+export interface AudioMessageDto {
+
     /**
      * @type {boolean}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
+     */
+    ptt?: boolean;
+
+    /**
+     * @type {string}
+     * @memberof AudioMessageDto
+     */
+    url?: string;
+
+    /**
+     * @type {number}
+     * @memberof AudioMessageDto
+     */
+    seconds?: number;
+
+    /**
+     * @type {string}
+     * @memberof AudioMessageDto
+     */
+    mediaKey?: string;
+
+    /**
+     * @type {string}
+     * @memberof AudioMessageDto
+     */
+    mimetype?: string;
+
+    /**
+     * @type {boolean}
+     * @memberof AudioMessageDto
      */
     viewOnce?: boolean;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
+     */
+    waveform?: string;
+
+    /**
+     * @type {string}
+     * @memberof AudioMessageDto
      */
     directPath?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     fileLength?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     fileSha256?: string;
+
     /**
      * @type {ContextInfoDto}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     contextInfo?: ContextInfoDto;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     fileEncSha256?: string;
+
     /**
      * @type {string}
-     * @memberof ImageMessageDto
-     */
-    jpegThumbnail?: string;
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     mediaKeyTimestamp?: string;
 }

@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+import { DeviceListMetadataDto } from './device-list-metadata-dto';
  /**
  * 
  *
@@ -25,4 +26,16 @@ export interface MessageContextInfoDto {
      * @memberof MessageContextInfoDto
      */
     messageSecret?: string;
+
+    /**
+     * @type {DeviceListMetadataDto}
+     * @memberof MessageContextInfoDto
+     */
+    deviceListMetadata?: DeviceListMetadataDto;
+
+    /**
+     * @type {number}
+     * @memberof MessageContextInfoDto
+     */
+    deviceListMetadataVersion?: number;
 }

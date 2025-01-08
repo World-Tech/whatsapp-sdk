@@ -14,72 +14,72 @@ import { ContextInfoDto } from './context-info-dto';
 *
 *
 * @export
-* @interface ImageMessageDto
+* @interface AudioMessageDto
 */
-export interface ImageMessageDto {
+export interface AudioMessageDto {
+    /**
+     * @type {boolean}
+     * @memberof AudioMessageDto
+     */
+    ptt?: boolean;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     url?: string;
     /**
      * @type {number}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
-    width?: number;
-    /**
-     * @type {number}
-     * @memberof ImageMessageDto
-     */
-    height?: number;
+    seconds?: number;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     mediaKey?: string;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     mimetype?: string;
     /**
      * @type {boolean}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     viewOnce?: boolean;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
+     */
+    waveform?: string;
+    /**
+     * @type {string}
+     * @memberof AudioMessageDto
      */
     directPath?: string;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     fileLength?: string;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     fileSha256?: string;
     /**
      * @type {ContextInfoDto}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     contextInfo?: ContextInfoDto;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     fileEncSha256?: string;
     /**
      * @type {string}
-     * @memberof ImageMessageDto
-     */
-    jpegThumbnail?: string;
-    /**
-     * @type {string}
-     * @memberof ImageMessageDto
+     * @memberof AudioMessageDto
      */
     mediaKeyTimestamp?: string;
 }

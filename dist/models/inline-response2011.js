@@ -1,3 +1,6 @@
+"use strict";
+/* tslint:disable */
+/* eslint-disable */
 /**
  * whatsapp-api
  * Endpoints de whatsapp-api
@@ -9,5 +12,4 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-export * from './apis/chat-api';
-export * from './apis/send-message-api';
+Object.defineProperty(exports, "__esModule", { value: true });

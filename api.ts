@@ -12,4 +12,5 @@
  * Do not edit the class manually.
  */
 export * from './apis/chat-api';
+export * from './apis/send-message-api';
 

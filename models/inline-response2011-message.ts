@@ -1,3 +1,5 @@
+/* tslint:disable */
+/* eslint-disable */
 /**
  * whatsapp-api
  * Endpoints de whatsapp-api
@@ -9,5 +11,18 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-export * from './apis/chat-api';
-export * from './apis/send-message-api';
+
+ /**
+ * 
+ *
+ * @export
+ * @interface InlineResponse2011Message
+ */
+export interface InlineResponse2011Message {
+
+    /**
+     * @type {string}
+     * @memberof InlineResponse2011Message
+     */
+    conversation?: string;
+}

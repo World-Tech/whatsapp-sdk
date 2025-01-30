@@ -24,3 +24,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * Do not edit the class manually.
  */
 __exportStar(require("./apis/chat-api"), exports);
+__exportStar(require("./apis/send-message-api"), exports);

@@ -11,62 +11,46 @@
  */
 import { ConversationMessageDto } from './conversation-message-dto';
 import { KeyDto } from './key-dto';
-import { StatusDto } from './status-dto';
 /**
 *
 *
 * @export
-* @interface InlineResponse2011
+* @interface InlineResponse2012
 */
-export interface InlineResponse2011 {
+export interface InlineResponse2012 {
     /**
      * @type {KeyDto}
-     * @memberof InlineResponse2011
+     * @memberof InlineResponse2012
      */
     key?: KeyDto;
     /**
-     * @type {string}
-     * @memberof InlineResponse2011
-     */
-    pushName?: string;
-    /**
-     * @type {string}
-     * @memberof InlineResponse2011
-     */
-    status?: string;
-    /**
      * @type {ConversationMessageDto}
-     * @memberof InlineResponse2011
+     * @memberof InlineResponse2012
      */
     message?: ConversationMessageDto;
     /**
-     * @type {any}
-     * @memberof InlineResponse2011
-     */
-    contextInfo?: any | null;
-    /**
      * @type {string}
-     * @memberof InlineResponse2011
+     * @memberof InlineResponse2012
      */
     messageType?: string;
     /**
      * @type {number}
-     * @memberof InlineResponse2011
+     * @memberof InlineResponse2012
      */
     messageTimestamp?: number;
     /**
      * @type {string}
-     * @memberof InlineResponse2011
+     * @memberof InlineResponse2012
      */
     instanceId?: string;
     /**
      * @type {string}
-     * @memberof InlineResponse2011
+     * @memberof InlineResponse2012
+     */
+    status?: string;
+    /**
+     * @type {string}
+     * @memberof InlineResponse2012
      */
     source?: string;
-    /**
-     * @type {Array<StatusDto>}
-     * @memberof InlineResponse2011
-     */
-    messageUpdate?: Array<StatusDto>;
 }

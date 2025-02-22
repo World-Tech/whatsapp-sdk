@@ -1,3 +1,4 @@
+"use strict";
 /* tslint:disable */
 /* eslint-disable */
 /**
@@ -11,6 +12,4 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-export * from './apis/chat-api';
-export * from './apis/message-api';
-
+Object.defineProperty(exports, "__esModule", { value: true });

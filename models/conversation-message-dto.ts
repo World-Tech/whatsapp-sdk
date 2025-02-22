@@ -11,6 +11,18 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-export * from './apis/chat-api';
-export * from './apis/message-api';
 
+ /**
+ * 
+ *
+ * @export
+ * @interface ConversationMessageDto
+ */
+export interface ConversationMessageDto {
+
+    /**
+     * @type {string}
+     * @memberof ConversationMessageDto
+     */
+    conversation: string;
+}

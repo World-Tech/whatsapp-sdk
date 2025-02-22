@@ -11,6 +11,24 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-export * from './apis/chat-api';
-export * from './apis/message-api';
 
+ /**
+ * 
+ *
+ * @export
+ * @interface ParameterTemplateDto
+ */
+export interface ParameterTemplateDto {
+
+    /**
+     * @type {string}
+     * @memberof ParameterTemplateDto
+     */
+    type: string;
+
+    /**
+     * @type {string}
+     * @memberof ParameterTemplateDto
+     */
+    text: string;
+}

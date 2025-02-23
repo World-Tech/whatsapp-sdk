@@ -101,15 +101,16 @@ var MessageApiAxiosParamCreator = function (configuration) {
          * @summary Send Template
          * @param {string} instance Name of instance
          * @param {SendTemplateDto} [body]
+         * @param {string} [apikey] apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: function (instance_1, body_1) {
+        sendTemplate: function (instance_1, body_1, apikey_1) {
             var args_1 = [];
-            for (var _i = 2; _i < arguments.length; _i++) {
-                args_1[_i - 2] = arguments[_i];
+            for (var _i = 3; _i < arguments.length; _i++) {
+                args_1[_i - 3] = arguments[_i];
             }
-            return __awaiter(_this, __spreadArray([instance_1, body_1], args_1, true), void 0, function (instance, body, options) {
+            return __awaiter(_this, __spreadArray([instance_1, body_1, apikey_1], args_1, true), void 0, function (instance, body, apikey, options) {
                 var localVarPath, localVarUrlObj, baseOptions, localVarRequestOptions, localVarHeaderParameter, localVarQueryParameter, query, key, key, headersFromBaseOptions, needsSerialization;
                 if (options === void 0) { options = {}; }
                 return __generator(this, function (_a) {
@@ -126,6 +127,9 @@ var MessageApiAxiosParamCreator = function (configuration) {
                     localVarRequestOptions = __assign(__assign({ method: 'POST' }, baseOptions), options);
                     localVarHeaderParameter = {};
                     localVarQueryParameter = {};
+                    if (apikey !== undefined && apikey !== null) {
+                        localVarHeaderParameter['apikey'] = String(apikey);
+                    }
                     localVarHeaderParameter['Content-Type'] = 'application/json';
                     query = new URLSearchParams(localVarUrlObj.search);
                     for (key in localVarQueryParameter) {
@@ -214,15 +218,16 @@ var MessageApiFp = function (configuration) {
          * @summary Send Template
          * @param {string} instance Name of instance
          * @param {SendTemplateDto} [body]
+         * @param {string} [apikey] apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: function (instance, body, options) {
+        sendTemplate: function (instance, body, apikey, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MessageApiAxiosParamCreator)(configuration).sendTemplate(instance, body, options)];
+                        case 0: return [4 /*yield*/, (0, exports.MessageApiAxiosParamCreator)(configuration).sendTemplate(instance, body, apikey, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -276,13 +281,14 @@ var MessageApiFactory = function (configuration, basePath, axios) {
          * @summary Send Template
          * @param {string} instance Name of instance
          * @param {SendTemplateDto} [body]
+         * @param {string} [apikey] apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: function (instance, body, options) {
+        sendTemplate: function (instance, body, apikey, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MessageApiFp)(configuration).sendTemplate(instance, body, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.MessageApiFp)(configuration).sendTemplate(instance, body, apikey, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
@@ -321,15 +327,16 @@ var MessageApi = /** @class */ (function (_super) {
      * @summary Send Template
      * @param {string} instance Name of instance
      * @param {SendTemplateDto} [body]
+     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessageApi
      */
-    MessageApi.prototype.sendTemplate = function (instance, body, options) {
+    MessageApi.prototype.sendTemplate = function (instance, body, apikey, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MessageApiFp)(this.configuration).sendTemplate(instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.MessageApiFp)(this.configuration).sendTemplate(instance, body, apikey, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };

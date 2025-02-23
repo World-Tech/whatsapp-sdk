@@ -26,12 +26,12 @@ export interface SendTemplateDto {
      * @type {string}
      * @memberof SendTemplateDto
      */
-    name?: string;
+    name: string;
     /**
      * @type {string}
      * @memberof SendTemplateDto
      */
-    language?: string;
+    language: string;
     /**
      * @type {ComponentTemplateDto}
      * @memberof SendTemplateDto

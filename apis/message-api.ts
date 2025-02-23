@@ -31,10 +31,11 @@ export const MessageApiAxiosParamCreator = function (configuration?: Configurati
          * @summary Send Template
          * @param {string} instance Name of instance
          * @param {SendTemplateDto} [body] 
+         * @param {string} [apikey] apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: async (instance: string, body?: SendTemplateDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sendTemplate: async (instance: string, body?: SendTemplateDto, apikey?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'instance' is not null or undefined
             if (instance === null || instance === undefined) {
                 throw new RequiredError('instance','Required parameter instance was null or undefined when calling sendTemplate.');
@@ -50,6 +51,10 @@ export const MessageApiAxiosParamCreator = function (configuration?: Configurati
             const localVarRequestOptions :AxiosRequestConfig = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            if (apikey !== undefined && apikey !== null) {
+                localVarHeaderParameter['apikey'] = String(apikey);
+            }
 
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
@@ -135,11 +140,12 @@ export const MessageApiFp = function(configuration?: Configuration) {
          * @summary Send Template
          * @param {string} instance Name of instance
          * @param {SendTemplateDto} [body] 
+         * @param {string} [apikey] apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>> {
-            const localVarAxiosArgs = await MessageApiAxiosParamCreator(configuration).sendTemplate(instance, body, options);
+        async sendTemplate(instance: string, body?: SendTemplateDto, apikey?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>> {
+            const localVarAxiosArgs = await MessageApiAxiosParamCreator(configuration).sendTemplate(instance, body, apikey, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -175,11 +181,12 @@ export const MessageApiFactory = function (configuration?: Configuration, basePa
          * @summary Send Template
          * @param {string} instance Name of instance
          * @param {SendTemplateDto} [body] 
+         * @param {string} [apikey] apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>> {
-            return MessageApiFp(configuration).sendTemplate(instance, body, options).then((request) => request(axios, basePath));
+        async sendTemplate(instance: string, body?: SendTemplateDto, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>> {
+            return MessageApiFp(configuration).sendTemplate(instance, body, apikey, options).then((request) => request(axios, basePath));
         },
         /**
          * Send conversation message or text message
@@ -208,12 +215,13 @@ export class MessageApi extends BaseAPI {
      * @summary Send Template
      * @param {string} instance Name of instance
      * @param {SendTemplateDto} [body] 
+     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessageApi
      */
-    public async sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2012>> {
-        return MessageApiFp(this.configuration).sendTemplate(instance, body, options).then((request) => request(this.axios, this.basePath));
+    public async sendTemplate(instance: string, body?: SendTemplateDto, apikey?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2012>> {
+        return MessageApiFp(this.configuration).sendTemplate(instance, body, apikey, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Send conversation message or text message

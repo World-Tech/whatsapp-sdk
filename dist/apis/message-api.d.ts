@@ -14,6 +14,7 @@ import { Configuration } from '../configuration';
 import { RequestArgs, BaseAPI } from '../base';
 import { InlineResponse2011 } from '../models';
 import { InlineResponse2012 } from '../models';
+import { SendTemplateDto } from '../models';
 /**
  * MessageApi - axios parameter creator
  * @export
@@ -23,11 +24,11 @@ export declare const MessageApiAxiosParamCreator: (configuration?: Configuration
      * Send template message
      * @summary Send Template
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {SendTemplateDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendTemplate: (instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    sendTemplate: (instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Send conversation message or text message
      * @summary Send Text
@@ -48,11 +49,11 @@ export declare const MessageApiFp: (configuration?: Configuration) => {
      * Send template message
      * @summary Send Template
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {SendTemplateDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendTemplate(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>>;
+    sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>>;
     /**
      * Send conversation message or text message
      * @summary Send Text
@@ -73,11 +74,11 @@ export declare const MessageApiFactory: (configuration?: Configuration, basePath
      * Send template message
      * @summary Send Template
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {SendTemplateDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendTemplate(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
+    sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
     /**
      * Send conversation message or text message
      * @summary Send Text
@@ -100,12 +101,12 @@ export declare class MessageApi extends BaseAPI {
      * Send template message
      * @summary Send Template
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {SendTemplateDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessageApi
      */
-    sendTemplate(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
+    sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
     /**
      * Send conversation message or text message
      * @summary Send Text

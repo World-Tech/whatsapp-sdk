@@ -19,6 +19,7 @@ import { Configuration } from '../configuration';
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
 import { InlineResponse2011 } from '../models';
 import { InlineResponse2012 } from '../models';
+import { SendTemplateDto } from '../models';
 /**
  * MessageApi - axios parameter creator
  * @export
@@ -29,11 +30,11 @@ export const MessageApiAxiosParamCreator = function (configuration?: Configurati
          * Send template message
          * @summary Send Template
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {SendTemplateDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: async (instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        sendTemplate: async (instance: string, body?: SendTemplateDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'instance' is not null or undefined
             if (instance === null || instance === undefined) {
                 throw new RequiredError('instance','Required parameter instance was null or undefined when calling sendTemplate.');
@@ -133,11 +134,11 @@ export const MessageApiFp = function(configuration?: Configuration) {
          * Send template message
          * @summary Send Template
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {SendTemplateDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTemplate(instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>> {
+        async sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>> {
             const localVarAxiosArgs = await MessageApiAxiosParamCreator(configuration).sendTemplate(instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -173,11 +174,11 @@ export const MessageApiFactory = function (configuration?: Configuration, basePa
          * Send template message
          * @summary Send Template
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {SendTemplateDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTemplate(instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>> {
+        async sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>> {
             return MessageApiFp(configuration).sendTemplate(instance, body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -206,12 +207,12 @@ export class MessageApi extends BaseAPI {
      * Send template message
      * @summary Send Template
      * @param {string} instance Name of instance
-     * @param {any} [body] 
+     * @param {SendTemplateDto} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessageApi
      */
-    public async sendTemplate(instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2012>> {
+    public async sendTemplate(instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2012>> {
         return MessageApiFp(this.configuration).sendTemplate(instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**

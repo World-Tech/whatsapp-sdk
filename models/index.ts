@@ -26,6 +26,7 @@ export * from './message-dto';
 export * from './parameter-template-dto';
 export * from './quick-reply-button-dto';
 export * from './record-message-dto';
+export * from './send-template-dto';
 export * from './status-dto';
 export * from './template-message-dto';
 export * from './video-message-dto';

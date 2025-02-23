@@ -100,7 +100,7 @@ var MessageApiAxiosParamCreator = function (configuration) {
          * Send template message
          * @summary Send Template
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {SendTemplateDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -213,7 +213,7 @@ var MessageApiFp = function (configuration) {
          * Send template message
          * @summary Send Template
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {SendTemplateDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -275,7 +275,7 @@ var MessageApiFactory = function (configuration, basePath, axios) {
          * Send template message
          * @summary Send Template
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {SendTemplateDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -320,7 +320,7 @@ var MessageApi = /** @class */ (function (_super) {
      * Send template message
      * @summary Send Template
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {SendTemplateDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessageApi

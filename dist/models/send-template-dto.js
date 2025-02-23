@@ -1,3 +1,4 @@
+"use strict";
 /* tslint:disable */
 /* eslint-disable */
 /**
@@ -11,24 +12,4 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-
- /**
- * Dto
- *
- * @export
- * @interface ParameterTemplateDto
- */
-export interface ParameterTemplateDto {
-
-    /**
-     * @type {string}
-     * @memberof ParameterTemplateDto
-     */
-    type: string;
-
-    /**
-     * @type {string}
-     * @memberof ParameterTemplateDto
-     */
-    text: string;
-}
+Object.defineProperty(exports, "__esModule", { value: true });

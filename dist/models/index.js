@@ -42,6 +42,7 @@ __exportStar(require("./message-dto"), exports);
 __exportStar(require("./parameter-template-dto"), exports);
 __exportStar(require("./quick-reply-button-dto"), exports);
 __exportStar(require("./record-message-dto"), exports);
+__exportStar(require("./send-template-dto"), exports);
 __exportStar(require("./status-dto"), exports);
 __exportStar(require("./template-message-dto"), exports);
 __exportStar(require("./video-message-dto"), exports);

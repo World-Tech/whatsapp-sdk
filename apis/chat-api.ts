@@ -24,6 +24,7 @@ import { InlineResponse2002 } from '../models';
 import { InlineResponse201 } from '../models';
 import { InlineResponse2XX } from '../models';
 import { InlineResponse500 } from '../models';
+import { WhereFindContactsDto } from '../models';
 /**
  * ChatApi - axios parameter creator
  * @export
@@ -138,11 +139,11 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {WhereFindContactsDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findContacts: async (apikey: string, instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        findContacts: async (apikey: string, instance: string, body?: WhereFindContactsDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'apikey' is not null or undefined
             if (apikey === null || apikey === undefined) {
                 throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling findContacts.');
@@ -394,11 +395,11 @@ export const ChatApiFp = function(configuration?: Configuration) {
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {WhereFindContactsDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findContacts(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ContactDto>>>> {
+        async findContacts(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<ContactDto>>>> {
             const localVarAxiosArgs = await ChatApiAxiosParamCreator(configuration).findContacts(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -490,11 +491,11 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
          * @summary Find Contacts
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {WhereFindContactsDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findContacts(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ContactDto>>> {
+        async findContacts(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<ContactDto>>> {
             return ChatApiFp(configuration).findContacts(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -573,12 +574,12 @@ export class ChatApi extends BaseAPI {
      * @summary Find Contacts
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body] 
+     * @param {WhereFindContactsDto} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    public async findContacts(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<ContactDto>>> {
+    public async findContacts(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<ContactDto>>> {
         return ChatApiFp(this.configuration).findContacts(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**

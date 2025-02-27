@@ -85,11 +85,11 @@ export const ChatApiAxiosParamCreator = function (configuration?: Configuration)
          * @summary Find Chats
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {WhereFindContactsDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        findChats: async (apikey: string, instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        findChats: async (apikey: string, instance: string, body?: WhereFindContactsDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'apikey' is not null or undefined
             if (apikey === null || apikey === undefined) {
                 throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling findChats.');
@@ -379,11 +379,11 @@ export const ChatApiFp = function(configuration?: Configuration) {
          * @summary Find Chats
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {WhereFindContactsDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>> {
+        async findChats(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>> {
             const localVarAxiosArgs = await ChatApiAxiosParamCreator(configuration).findChats(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -479,11 +479,11 @@ export const ChatApiFactory = function (configuration?: Configuration, basePath?
          * @summary Find Chats
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {WhereFindContactsDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>> {
+        async findChats(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>> {
             return ChatApiFp(configuration).findChats(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -561,12 +561,12 @@ export class ChatApi extends BaseAPI {
      * @summary Find Chats
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body] 
+     * @param {WhereFindContactsDto} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    public async findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<InlineResponse2002>>> {
+    public async findChats(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<InlineResponse2002>>> {
         return ChatApiFp(this.configuration).findChats(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**

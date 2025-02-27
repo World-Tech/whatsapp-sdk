@@ -37,11 +37,11 @@ export declare const ChatApiAxiosParamCreator: (configuration?: Configuration) =
      * @summary Find Chats
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {WhereFindContactsDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findChats: (apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    findChats: (apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -102,11 +102,11 @@ export declare const ChatApiFp: (configuration?: Configuration) => {
      * @summary Find Chats
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {WhereFindContactsDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>>;
+    findChats(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<InlineResponse2002>>>>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -167,11 +167,11 @@ export declare const ChatApiFactory: (configuration?: Configuration, basePath?: 
      * @summary Find Chats
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {WhereFindContactsDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
+    findChats(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
     /**
      * Find Contacts
      * @summary Find Contacts
@@ -235,12 +235,12 @@ export declare class ChatApi extends BaseAPI {
      * @summary Find Chats
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {WhereFindContactsDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi
      */
-    findChats(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
+    findChats(apikey: string, instance: string, body?: WhereFindContactsDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<InlineResponse2002>>>;
     /**
      * Find Contacts
      * @summary Find Contacts

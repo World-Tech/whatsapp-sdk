@@ -155,7 +155,7 @@ var ChatApiAxiosParamCreator = function (configuration) {
          * @summary Find Chats
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {WhereFindContactsDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -480,7 +480,7 @@ var ChatApiFp = function (configuration) {
          * @summary Find Chats
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {WhereFindContactsDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -639,7 +639,7 @@ var ChatApiFactory = function (configuration, basePath, axios) {
          * @summary Find Chats
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {WhereFindContactsDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -750,7 +750,7 @@ var ChatApi = /** @class */ (function (_super) {
      * @summary Find Chats
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {WhereFindContactsDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof ChatApi

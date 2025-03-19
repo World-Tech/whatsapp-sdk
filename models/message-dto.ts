@@ -60,4 +60,10 @@ export interface MessageDto {
      * @memberof MessageDto
      */
     videoMessage?: VideoMessageDto;
+
+    /**
+     * @type {string}
+     * @memberof MessageDto
+     */
+    mediaUrl?: string;
 }

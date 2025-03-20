@@ -13,6 +13,7 @@
  */
 
 import { AudioMessageDto } from './audio-message-dto';
+import { DocumentMessageDto } from './document-message-dto';
 import { ImageMessageDto } from './image-message-dto';
 import { MessageContextInfoDto } from './message-context-info-dto';
 import { TemplateMessageDto } from './template-message-dto';
@@ -24,6 +25,12 @@ import { VideoMessageDto } from './video-message-dto';
  * @interface MessageDto
  */
 export interface MessageDto {
+
+    /**
+     * @type {string}
+     * @memberof MessageDto
+     */
+    mediaUrl?: string | null;
 
     /**
      * @type {string}
@@ -62,8 +69,8 @@ export interface MessageDto {
     videoMessage?: VideoMessageDto;
 
     /**
-     * @type {string}
+     * @type {DocumentMessageDto}
      * @memberof MessageDto
      */
-    mediaUrl?: string;
+    documentMessage?: DocumentMessageDto;
 }

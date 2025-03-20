@@ -5,6 +5,7 @@ export * from './context-info-dto';
 export * from './conversation-message-dto';
 export * from './device-list-metadata-dto';
 export * from './disappearing-mode-dto';
+export * from './document-message-dto';
 export * from './hydrated-button-dto';
 export * from './hydrated-four-row-template-dto';
 export * from './hydrated-template-dto';

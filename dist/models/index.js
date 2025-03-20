@@ -21,6 +21,7 @@ __exportStar(require("./context-info-dto"), exports);
 __exportStar(require("./conversation-message-dto"), exports);
 __exportStar(require("./device-list-metadata-dto"), exports);
 __exportStar(require("./disappearing-mode-dto"), exports);
+__exportStar(require("./document-message-dto"), exports);
 __exportStar(require("./hydrated-button-dto"), exports);
 __exportStar(require("./hydrated-four-row-template-dto"), exports);
 __exportStar(require("./hydrated-template-dto"), exports);

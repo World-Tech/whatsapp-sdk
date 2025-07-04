@@ -13,8 +13,10 @@
  */
 
 import { AudioMessageDto } from './audio-message-dto';
+import { ContextInfo1Dto } from './context-info1-dto';
 import { DocumentMessageDto } from './document-message-dto';
 import { ImageMessageDto } from './image-message-dto';
+import { InteractiveMessageDto } from './interactive-message-dto';
 import { MessageContextInfoDto } from './message-context-info-dto';
 import { TemplateMessageDto } from './template-message-dto';
 import { VideoMessageDto } from './video-message-dto';
@@ -37,6 +39,12 @@ export interface MessageDto {
      * @memberof MessageDto
      */
     conversation?: string | null;
+
+    /**
+     * @type {ContextInfo1Dto}
+     * @memberof MessageDto
+     */
+    contextInfo?: ContextInfo1Dto;
 
     /**
      * @type {TemplateMessageDto}
@@ -73,4 +81,10 @@ export interface MessageDto {
      * @memberof MessageDto
      */
     documentMessage?: DocumentMessageDto;
+
+    /**
+     * @type {InteractiveMessageDto}
+     * @memberof MessageDto
+     */
+    interactive?: InteractiveMessageDto;
 }

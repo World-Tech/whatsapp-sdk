@@ -26,5 +26,5 @@ export interface InteractiveMessageDto {
      * @type {NfmReplyDto}
      * @memberof InteractiveMessageDto
      */
-    nfmReply?: NfmReplyDto;
+    nfm_reply?: NfmReplyDto;
 }

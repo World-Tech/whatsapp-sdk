@@ -30,5 +30,5 @@ export interface NfmReplyDto {
      * @type {string}
      * @memberof NfmReplyDto
      */
-    responseJson: string;
+    response_json: string;
 }

@@ -23,23 +23,23 @@ export declare const MessageApiAxiosParamCreator: (configuration?: Configuration
     /**
      * Send template message
      * @summary Send Template
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {SendTemplateDto} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendTemplate: (instance: string, body?: SendTemplateDto, apikey?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    sendTemplate: (apikey: string, instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Send conversation message or text message
      * @summary Send Text
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendText: (instance: string, body?: any, apikey?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    sendText: (apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * MessageApi - functional programming interface
@@ -49,23 +49,23 @@ export declare const MessageApiFp: (configuration?: Configuration) => {
     /**
      * Send template message
      * @summary Send Template
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {SendTemplateDto} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendTemplate(instance: string, body?: SendTemplateDto, apikey?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>>;
+    sendTemplate(apikey: string, instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>>;
     /**
      * Send conversation message or text message
      * @summary Send Text
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendText(instance: string, body?: any, apikey?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>>;
+    sendText(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>>;
 };
 /**
  * MessageApi - factory interface
@@ -75,23 +75,23 @@ export declare const MessageApiFactory: (configuration?: Configuration, basePath
     /**
      * Send template message
      * @summary Send Template
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {SendTemplateDto} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendTemplate(instance: string, body?: SendTemplateDto, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
+    sendTemplate(apikey: string, instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
     /**
      * Send conversation message or text message
      * @summary Send Text
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    sendText(instance: string, body?: any, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>>;
+    sendText(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>>;
 };
 /**
  * MessageApi - object-oriented interface
@@ -103,23 +103,23 @@ export declare class MessageApi extends BaseAPI {
     /**
      * Send template message
      * @summary Send Template
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {SendTemplateDto} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessageApi
      */
-    sendTemplate(instance: string, body?: SendTemplateDto, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
+    sendTemplate(apikey: string, instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>>;
     /**
      * Send conversation message or text message
      * @summary Send Text
+     * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
      * @param {any} [body]
-     * @param {string} [apikey] apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessageApi
      */
-    sendText(instance: string, body?: any, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>>;
+    sendText(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>>;
 }

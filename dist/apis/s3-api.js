@@ -84,28 +84,28 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MessageApi = exports.MessageApiFactory = exports.MessageApiFp = exports.MessageApiAxiosParamCreator = void 0;
+exports.S3Api = exports.S3ApiFactory = exports.S3ApiFp = exports.S3ApiAxiosParamCreator = void 0;
 var axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
 var base_1 = require("../base");
 /**
- * MessageApi - axios parameter creator
+ * S3Api - axios parameter creator
  * @export
  */
-var MessageApiAxiosParamCreator = function (configuration) {
+var S3ApiAxiosParamCreator = function (configuration) {
     var _this = this;
     return {
         /**
-         * Send template message
-         * @summary Send Template
+         * Get media message
+         * @summary Get Media
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {SendTemplateDto} [body]
+         * @param {RequestMediaDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: function (apikey_1, instance_1, body_1) {
+        getMedia: function (apikey_1, instance_1, body_1) {
             var args_1 = [];
             for (var _i = 3; _i < arguments.length; _i++) {
                 args_1[_i - 3] = arguments[_i];
@@ -116,13 +116,13 @@ var MessageApiAxiosParamCreator = function (configuration) {
                 return __generator(this, function (_a) {
                     // verify required parameter 'apikey' is not null or undefined
                     if (apikey === null || apikey === undefined) {
-                        throw new base_1.RequiredError('apikey', 'Required parameter apikey was null or undefined when calling sendTemplate.');
+                        throw new base_1.RequiredError('apikey', 'Required parameter apikey was null or undefined when calling getMedia.');
                     }
                     // verify required parameter 'instance' is not null or undefined
                     if (instance === null || instance === undefined) {
-                        throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling sendTemplate.');
+                        throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling getMedia.');
                     }
-                    localVarPath = "/message/sendTemplate/{instance}"
+                    localVarPath = "/s3/getMedia/{instance}"
                         .replace("{".concat("instance", "}"), encodeURIComponent(String(instance)));
                     localVarUrlObj = new URL(localVarPath, 'https://example.com');
                     if (configuration) {
@@ -155,15 +155,15 @@ var MessageApiAxiosParamCreator = function (configuration) {
             });
         },
         /**
-         * Send conversation message or text message
-         * @summary Send Text
+         * Get media message URL
+         * @summary Get Media Url
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {RequestMediaDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendText: function (apikey_1, instance_1, body_1) {
+        getMediaUrl: function (apikey_1, instance_1, body_1) {
             var args_1 = [];
             for (var _i = 3; _i < arguments.length; _i++) {
                 args_1[_i - 3] = arguments[_i];
@@ -174,13 +174,13 @@ var MessageApiAxiosParamCreator = function (configuration) {
                 return __generator(this, function (_a) {
                     // verify required parameter 'apikey' is not null or undefined
                     if (apikey === null || apikey === undefined) {
-                        throw new base_1.RequiredError('apikey', 'Required parameter apikey was null or undefined when calling sendText.');
+                        throw new base_1.RequiredError('apikey', 'Required parameter apikey was null or undefined when calling getMediaUrl.');
                     }
                     // verify required parameter 'instance' is not null or undefined
                     if (instance === null || instance === undefined) {
-                        throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling sendText.');
+                        throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling getMediaUrl.');
                     }
-                    localVarPath = "/message/sendText/{instance}"
+                    localVarPath = "/s3/getMediaUrl/{instance}"
                         .replace("{".concat("instance", "}"), encodeURIComponent(String(instance)));
                     localVarUrlObj = new URL(localVarPath, 'https://example.com');
                     if (configuration) {
@@ -214,28 +214,28 @@ var MessageApiAxiosParamCreator = function (configuration) {
         },
     };
 };
-exports.MessageApiAxiosParamCreator = MessageApiAxiosParamCreator;
+exports.S3ApiAxiosParamCreator = S3ApiAxiosParamCreator;
 /**
- * MessageApi - functional programming interface
+ * S3Api - functional programming interface
  * @export
  */
-var MessageApiFp = function (configuration) {
+var S3ApiFp = function (configuration) {
     return {
         /**
-         * Send template message
-         * @summary Send Template
+         * Get media message
+         * @summary Get Media
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {SendTemplateDto} [body]
+         * @param {RequestMediaDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: function (apikey, instance, body, options) {
+        getMedia: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MessageApiAxiosParamCreator)(configuration).sendTemplate(apikey, instance, body, options)];
+                        case 0: return [4 /*yield*/, (0, exports.S3ApiAxiosParamCreator)(configuration).getMedia(apikey, instance, body, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -249,20 +249,20 @@ var MessageApiFp = function (configuration) {
             });
         },
         /**
-         * Send conversation message or text message
-         * @summary Send Text
+         * Get media message URL
+         * @summary Get Media Url
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {RequestMediaDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendText: function (apikey, instance, body, options) {
+        getMediaUrl: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 var localVarAxiosArgs;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: return [4 /*yield*/, (0, exports.MessageApiAxiosParamCreator)(configuration).sendText(apikey, instance, body, options)];
+                        case 0: return [4 /*yield*/, (0, exports.S3ApiAxiosParamCreator)(configuration).getMediaUrl(apikey, instance, body, options)];
                         case 1:
                             localVarAxiosArgs = _a.sent();
                             return [2 /*return*/, function (axios, basePath) {
@@ -277,95 +277,95 @@ var MessageApiFp = function (configuration) {
         },
     };
 };
-exports.MessageApiFp = MessageApiFp;
+exports.S3ApiFp = S3ApiFp;
 /**
- * MessageApi - factory interface
+ * S3Api - factory interface
  * @export
  */
-var MessageApiFactory = function (configuration, basePath, axios) {
+var S3ApiFactory = function (configuration, basePath, axios) {
     return {
         /**
-         * Send template message
-         * @summary Send Template
+         * Get media message
+         * @summary Get Media
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {SendTemplateDto} [body]
+         * @param {RequestMediaDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: function (apikey, instance, body, options) {
+        getMedia: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MessageApiFp)(configuration).sendTemplate(apikey, instance, body, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.S3ApiFp)(configuration).getMedia(apikey, instance, body, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
         /**
-         * Send conversation message or text message
-         * @summary Send Text
+         * Get media message URL
+         * @summary Get Media Url
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body]
+         * @param {RequestMediaDto} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendText: function (apikey, instance, body, options) {
+        getMediaUrl: function (apikey, instance, body, options) {
             return __awaiter(this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
-                    return [2 /*return*/, (0, exports.MessageApiFp)(configuration).sendText(apikey, instance, body, options).then(function (request) { return request(axios, basePath); })];
+                    return [2 /*return*/, (0, exports.S3ApiFp)(configuration).getMediaUrl(apikey, instance, body, options).then(function (request) { return request(axios, basePath); })];
                 });
             });
         },
     };
 };
-exports.MessageApiFactory = MessageApiFactory;
+exports.S3ApiFactory = S3ApiFactory;
 /**
- * MessageApi - object-oriented interface
+ * S3Api - object-oriented interface
  * @export
- * @class MessageApi
+ * @class S3Api
  * @extends {BaseAPI}
  */
-var MessageApi = /** @class */ (function (_super) {
-    __extends(MessageApi, _super);
-    function MessageApi() {
+var S3Api = /** @class */ (function (_super) {
+    __extends(S3Api, _super);
+    function S3Api() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     /**
-     * Send template message
-     * @summary Send Template
+     * Get media message
+     * @summary Get Media
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {SendTemplateDto} [body]
+     * @param {RequestMediaDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MessageApi
+     * @memberof S3Api
      */
-    MessageApi.prototype.sendTemplate = function (apikey, instance, body, options) {
+    S3Api.prototype.getMedia = function (apikey, instance, body, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MessageApiFp)(this.configuration).sendTemplate(apikey, instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.S3ApiFp)(this.configuration).getMedia(apikey, instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
     /**
-     * Send conversation message or text message
-     * @summary Send Text
+     * Get media message URL
+     * @summary Get Media Url
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body]
+     * @param {RequestMediaDto} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MessageApi
+     * @memberof S3Api
      */
-    MessageApi.prototype.sendText = function (apikey, instance, body, options) {
+    S3Api.prototype.getMediaUrl = function (apikey, instance, body, options) {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, (0, exports.MessageApiFp)(this.configuration).sendText(apikey, instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
+                return [2 /*return*/, (0, exports.S3ApiFp)(this.configuration).getMediaUrl(apikey, instance, body, options).then(function (request) { return request(_this.axios, _this.basePath); })];
             });
         });
     };
-    return MessageApi;
+    return S3Api;
 }(base_1.BaseAPI));
-exports.MessageApi = MessageApi;
+exports.S3Api = S3Api;

@@ -11,7 +11,24 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-export * from './apis/chat-api';
-export * from './apis/message-api';
-export * from './apis/s3-api';
 
+ /**
+ * 
+ *
+ * @export
+ * @interface RequestMediaDto
+ */
+export interface RequestMediaDto {
+
+    /**
+     * @type {string}
+     * @memberof RequestMediaDto
+     */
+    id?: string;
+
+    /**
+     * @type {string}
+     * @memberof RequestMediaDto
+     */
+    messageId?: string;
+}

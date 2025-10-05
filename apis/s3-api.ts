@@ -17,34 +17,34 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { InlineResponse2011 } from '../models';
-import { InlineResponse2012 } from '../models';
-import { SendTemplateDto } from '../models';
+import { InlineResponse2003 } from '../models';
+import { InlineResponse2013 } from '../models';
+import { RequestMediaDto } from '../models';
 /**
- * MessageApi - axios parameter creator
+ * S3Api - axios parameter creator
  * @export
  */
-export const MessageApiAxiosParamCreator = function (configuration?: Configuration) {
+export const S3ApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Send template message
-         * @summary Send Template
+         * Get media message
+         * @summary Get Media
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {SendTemplateDto} [body] 
+         * @param {RequestMediaDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendTemplate: async (apikey: string, instance: string, body?: SendTemplateDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMedia: async (apikey: string, instance: string, body?: RequestMediaDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'apikey' is not null or undefined
             if (apikey === null || apikey === undefined) {
-                throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling sendTemplate.');
+                throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling getMedia.');
             }
             // verify required parameter 'instance' is not null or undefined
             if (instance === null || instance === undefined) {
-                throw new RequiredError('instance','Required parameter instance was null or undefined when calling sendTemplate.');
+                throw new RequiredError('instance','Required parameter instance was null or undefined when calling getMedia.');
             }
-            const localVarPath = `/message/sendTemplate/{instance}`
+            const localVarPath = `/s3/getMedia/{instance}`
                 .replace(`{${"instance"}}`, encodeURIComponent(String(instance)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -81,24 +81,24 @@ export const MessageApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Send conversation message or text message
-         * @summary Send Text
+         * Get media message URL
+         * @summary Get Media Url
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {RequestMediaDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        sendText: async (apikey: string, instance: string, body?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMediaUrl: async (apikey: string, instance: string, body?: RequestMediaDto, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'apikey' is not null or undefined
             if (apikey === null || apikey === undefined) {
-                throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling sendText.');
+                throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling getMediaUrl.');
             }
             // verify required parameter 'instance' is not null or undefined
             if (instance === null || instance === undefined) {
-                throw new RequiredError('instance','Required parameter instance was null or undefined when calling sendText.');
+                throw new RequiredError('instance','Required parameter instance was null or undefined when calling getMediaUrl.');
             }
-            const localVarPath = `/message/sendText/{instance}`
+            const localVarPath = `/s3/getMediaUrl/{instance}`
                 .replace(`{${"instance"}}`, encodeURIComponent(String(instance)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, 'https://example.com');
@@ -138,38 +138,38 @@ export const MessageApiAxiosParamCreator = function (configuration?: Configurati
 };
 
 /**
- * MessageApi - functional programming interface
+ * S3Api - functional programming interface
  * @export
  */
-export const MessageApiFp = function(configuration?: Configuration) {
+export const S3ApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Send template message
-         * @summary Send Template
+         * Get media message
+         * @summary Get Media
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {SendTemplateDto} [body] 
+         * @param {RequestMediaDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTemplate(apikey: string, instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2012>>> {
-            const localVarAxiosArgs = await MessageApiAxiosParamCreator(configuration).sendTemplate(apikey, instance, body, options);
+        async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2013>>> {
+            const localVarAxiosArgs = await S3ApiAxiosParamCreator(configuration).getMedia(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
             };
         },
         /**
-         * Send conversation message or text message
-         * @summary Send Text
+         * Get media message URL
+         * @summary Get Media Url
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {RequestMediaDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendText(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2011>>> {
-            const localVarAxiosArgs = await MessageApiAxiosParamCreator(configuration).sendText(apikey, instance, body, options);
+        async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2003>>> {
+            const localVarAxiosArgs = await S3ApiAxiosParamCreator(configuration).getMediaUrl(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
                 return axios.request(axiosRequestArgs);
@@ -179,69 +179,69 @@ export const MessageApiFp = function(configuration?: Configuration) {
 };
 
 /**
- * MessageApi - factory interface
+ * S3Api - factory interface
  * @export
  */
-export const MessageApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+export const S3ApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * Send template message
-         * @summary Send Template
+         * Get media message
+         * @summary Get Media
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {SendTemplateDto} [body] 
+         * @param {RequestMediaDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTemplate(apikey: string, instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2012>> {
-            return MessageApiFp(configuration).sendTemplate(apikey, instance, body, options).then((request) => request(axios, basePath));
+        async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2013>> {
+            return S3ApiFp(configuration).getMedia(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
         /**
-         * Send conversation message or text message
-         * @summary Send Text
+         * Get media message URL
+         * @summary Get Media Url
          * @param {string} apikey apikey from .env
          * @param {string} instance Name of instance
-         * @param {any} [body] 
+         * @param {RequestMediaDto} [body] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async sendText(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2011>> {
-            return MessageApiFp(configuration).sendText(apikey, instance, body, options).then((request) => request(axios, basePath));
+        async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2003>> {
+            return S3ApiFp(configuration).getMediaUrl(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * MessageApi - object-oriented interface
+ * S3Api - object-oriented interface
  * @export
- * @class MessageApi
+ * @class S3Api
  * @extends {BaseAPI}
  */
-export class MessageApi extends BaseAPI {
+export class S3Api extends BaseAPI {
     /**
-     * Send template message
-     * @summary Send Template
+     * Get media message
+     * @summary Get Media
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {SendTemplateDto} [body] 
+     * @param {RequestMediaDto} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MessageApi
+     * @memberof S3Api
      */
-    public async sendTemplate(apikey: string, instance: string, body?: SendTemplateDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2012>> {
-        return MessageApiFp(this.configuration).sendTemplate(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
+    public async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2013>> {
+        return S3ApiFp(this.configuration).getMedia(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
-     * Send conversation message or text message
-     * @summary Send Text
+     * Get media message URL
+     * @summary Get Media Url
      * @param {string} apikey apikey from .env
      * @param {string} instance Name of instance
-     * @param {any} [body] 
+     * @param {RequestMediaDto} [body] 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MessageApi
+     * @memberof S3Api
      */
-    public async sendText(apikey: string, instance: string, body?: any, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2011>> {
-        return MessageApiFp(this.configuration).sendText(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
+    public async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2003>> {
+        return S3ApiFp(this.configuration).getMediaUrl(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
 }

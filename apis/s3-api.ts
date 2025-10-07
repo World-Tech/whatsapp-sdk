@@ -17,8 +17,7 @@ import { Configuration } from '../configuration';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
-import { InlineResponse2003 } from '../models';
-import { InlineResponse2013 } from '../models';
+import { MediaDto } from '../models';
 import { RequestMediaDto } from '../models';
 /**
  * S3Api - axios parameter creator
@@ -152,7 +151,7 @@ export const S3ApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2013>>> {
+        async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<MediaDto>>>> {
             const localVarAxiosArgs = await S3ApiAxiosParamCreator(configuration).getMedia(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -168,7 +167,7 @@ export const S3ApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2003>>> {
+        async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MediaDto>>> {
             const localVarAxiosArgs = await S3ApiAxiosParamCreator(configuration).getMediaUrl(apikey, instance, body, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -193,7 +192,7 @@ export const S3ApiFactory = function (configuration?: Configuration, basePath?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2013>> {
+        async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MediaDto>>> {
             return S3ApiFp(configuration).getMedia(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -205,7 +204,7 @@ export const S3ApiFactory = function (configuration?: Configuration, basePath?: 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2003>> {
+        async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<MediaDto>> {
             return S3ApiFp(configuration).getMediaUrl(apikey, instance, body, options).then((request) => request(axios, basePath));
         },
     };
@@ -228,7 +227,7 @@ export class S3Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof S3Api
      */
-    public async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2013>> {
+    public async getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<MediaDto>>> {
         return S3ApiFp(this.configuration).getMedia(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
     /**
@@ -241,7 +240,7 @@ export class S3Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof S3Api
      */
-    public async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<InlineResponse2003>> {
+    public async getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig) : Promise<AxiosResponse<MediaDto>> {
         return S3ApiFp(this.configuration).getMediaUrl(apikey, instance, body, options).then((request) => request(this.axios, this.basePath));
     }
 }

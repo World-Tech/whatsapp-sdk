@@ -12,8 +12,7 @@
 import { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Configuration } from '../configuration';
 import { RequestArgs, BaseAPI } from '../base';
-import { InlineResponse2003 } from '../models';
-import { InlineResponse2013 } from '../models';
+import { MediaDto } from '../models';
 import { RequestMediaDto } from '../models';
 /**
  * S3Api - axios parameter creator
@@ -55,7 +54,7 @@ export declare const S3ApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2013>>>;
+    getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<MediaDto>>>>;
     /**
      * Get media message URL
      * @summary Get Media Url
@@ -65,7 +64,7 @@ export declare const S3ApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<InlineResponse2003>>>;
+    getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<MediaDto>>>;
 };
 /**
  * S3Api - factory interface
@@ -81,7 +80,7 @@ export declare const S3ApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2013>>;
+    getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MediaDto>>>;
     /**
      * Get media message URL
      * @summary Get Media Url
@@ -91,7 +90,7 @@ export declare const S3ApiFactory: (configuration?: Configuration, basePath?: st
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2003>>;
+    getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<MediaDto>>;
 };
 /**
  * S3Api - object-oriented interface
@@ -110,7 +109,7 @@ export declare class S3Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof S3Api
      */
-    getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2013>>;
+    getMedia(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<MediaDto>>>;
     /**
      * Get media message URL
      * @summary Get Media Url
@@ -121,5 +120,5 @@ export declare class S3Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof S3Api
      */
-    getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<InlineResponse2003>>;
+    getMediaUrl(apikey: string, instance: string, body?: RequestMediaDto, options?: AxiosRequestConfig): Promise<AxiosResponse<MediaDto>>;
 }

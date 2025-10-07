@@ -43,5 +43,5 @@ export interface MediaDto {
      * @type {MediaDtoMessage}
      * @memberof MediaDto
      */
-    message: MediaDtoMessage;
+    Message: MediaDtoMessage;
 }

@@ -30,3 +30,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./apis/chat-api"), exports);
 __exportStar(require("./apis/message-api"), exports);
 __exportStar(require("./apis/s3-api"), exports);
+__exportStar(require("./apis/template-api"), exports);

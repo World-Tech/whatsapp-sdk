@@ -15,6 +15,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./audio-message-dto"), exports);
+__exportStar(require("./button-template-dto"), exports);
+__exportStar(require("./component-dto"), exports);
 __exportStar(require("./component-template-dto"), exports);
 __exportStar(require("./contact-dto"), exports);
 __exportStar(require("./context-info1-dto"), exports);
@@ -51,6 +53,7 @@ __exportStar(require("./record-message-dto"), exports);
 __exportStar(require("./request-media-dto"), exports);
 __exportStar(require("./send-template-dto"), exports);
 __exportStar(require("./status-dto"), exports);
+__exportStar(require("./template-dto"), exports);
 __exportStar(require("./template-message-dto"), exports);
 __exportStar(require("./video-message-dto"), exports);
 __exportStar(require("./where-find-contacts-dto"), exports);

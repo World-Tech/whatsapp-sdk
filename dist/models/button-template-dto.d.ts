@@ -9,32 +9,26 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ParameterTemplateDto } from './parameter-template-dto';
 /**
 *
 *
 * @export
-* @interface ComponentTemplateDto
+* @interface ButtonTemplateDto
 */
-export interface ComponentTemplateDto {
+export interface ButtonTemplateDto {
     /**
      * @type {string}
-     * @memberof ComponentTemplateDto
+     * @memberof ButtonTemplateDto
      */
     type: string;
     /**
      * @type {string}
-     * @memberof ComponentTemplateDto
+     * @memberof ButtonTemplateDto
      */
-    sub_type?: string;
+    text: string;
     /**
      * @type {string}
-     * @memberof ComponentTemplateDto
+     * @memberof ButtonTemplateDto
      */
-    index?: string;
-    /**
-     * @type {Array<ParameterTemplateDto>}
-     * @memberof ComponentTemplateDto
-     */
-    parameters: Array<ParameterTemplateDto>;
+    url?: string;
 }

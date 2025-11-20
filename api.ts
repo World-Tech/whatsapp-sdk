@@ -14,4 +14,5 @@
 export * from './apis/chat-api';
 export * from './apis/message-api';
 export * from './apis/s3-api';
+export * from './apis/template-api';
 

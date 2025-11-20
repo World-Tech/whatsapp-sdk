@@ -1,4 +1,6 @@
 export * from './audio-message-dto';
+export * from './button-template-dto';
+export * from './component-dto';
 export * from './component-template-dto';
 export * from './contact-dto';
 export * from './context-info1-dto';
@@ -35,6 +37,7 @@ export * from './record-message-dto';
 export * from './request-media-dto';
 export * from './send-template-dto';
 export * from './status-dto';
+export * from './template-dto';
 export * from './template-message-dto';
 export * from './video-message-dto';
 export * from './where-find-contacts-dto';

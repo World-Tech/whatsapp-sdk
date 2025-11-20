@@ -80,5 +80,5 @@ export interface RecordMessageDto {
      * @type {Array<any>}
      * @memberof RecordMessageDto
      */
-    messageUpdate?: Array<any>;
+    MessageUpdate?: Array<any>;
 }

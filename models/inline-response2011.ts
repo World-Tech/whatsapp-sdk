@@ -81,5 +81,5 @@ export interface InlineResponse2011 {
      * @type {Array<StatusDto>}
      * @memberof InlineResponse2011
      */
-    messageUpdate?: Array<StatusDto>;
+    MessageUpdate?: Array<StatusDto>;
 }

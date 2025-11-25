@@ -28,14 +28,18 @@ export const TemplateApiAxiosParamCreator = function (configuration?: Configurat
          * Get templates
          * @summary Your GET endpoint
          * @param {string} instance Name of instance
-         * @param {string} [apikey] apikey from .env
+         * @param {string} apikey apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTemplates: async (instance: string, apikey?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTemplates: async (instance: string, apikey: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'instance' is not null or undefined
             if (instance === null || instance === undefined) {
                 throw new RequiredError('instance','Required parameter instance was null or undefined when calling getTemplates.');
+            }
+            // verify required parameter 'apikey' is not null or undefined
+            if (apikey === null || apikey === undefined) {
+                throw new RequiredError('apikey','Required parameter apikey was null or undefined when calling getTemplates.');
             }
             const localVarPath = `/template/find/{instance}`
                 .replace(`{${"instance"}}`, encodeURIComponent(String(instance)));
@@ -82,11 +86,11 @@ export const TemplateApiFp = function(configuration?: Configuration) {
          * Get templates
          * @summary Your GET endpoint
          * @param {string} instance Name of instance
-         * @param {string} [apikey] apikey from .env
+         * @param {string} apikey apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTemplates(instance: string, apikey?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<TemplateDto>>>> {
+        async getTemplates(instance: string, apikey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<TemplateDto>>>> {
             const localVarAxiosArgs = await TemplateApiAxiosParamCreator(configuration).getTemplates(instance, apikey, options);
             return (axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
                 const axiosRequestArgs :AxiosRequestConfig = {...localVarAxiosArgs.options, url: basePath + localVarAxiosArgs.url};
@@ -106,11 +110,11 @@ export const TemplateApiFactory = function (configuration?: Configuration, baseP
          * Get templates
          * @summary Your GET endpoint
          * @param {string} instance Name of instance
-         * @param {string} [apikey] apikey from .env
+         * @param {string} apikey apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTemplates(instance: string, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TemplateDto>>> {
+        async getTemplates(instance: string, apikey: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TemplateDto>>> {
             return TemplateApiFp(configuration).getTemplates(instance, apikey, options).then((request) => request(axios, basePath));
         },
     };
@@ -127,12 +131,12 @@ export class TemplateApi extends BaseAPI {
      * Get templates
      * @summary Your GET endpoint
      * @param {string} instance Name of instance
-     * @param {string} [apikey] apikey from .env
+     * @param {string} apikey apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TemplateApi
      */
-    public async getTemplates(instance: string, apikey?: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<TemplateDto>>> {
+    public async getTemplates(instance: string, apikey: string, options?: AxiosRequestConfig) : Promise<AxiosResponse<Array<TemplateDto>>> {
         return TemplateApiFp(this.configuration).getTemplates(instance, apikey, options).then((request) => request(this.axios, this.basePath));
     }
 }

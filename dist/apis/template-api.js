@@ -100,7 +100,7 @@ var TemplateApiAxiosParamCreator = function (configuration) {
          * Get templates
          * @summary Your GET endpoint
          * @param {string} instance Name of instance
-         * @param {string} [apikey] apikey from .env
+         * @param {string} apikey apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -116,6 +116,10 @@ var TemplateApiAxiosParamCreator = function (configuration) {
                     // verify required parameter 'instance' is not null or undefined
                     if (instance === null || instance === undefined) {
                         throw new base_1.RequiredError('instance', 'Required parameter instance was null or undefined when calling getTemplates.');
+                    }
+                    // verify required parameter 'apikey' is not null or undefined
+                    if (apikey === null || apikey === undefined) {
+                        throw new base_1.RequiredError('apikey', 'Required parameter apikey was null or undefined when calling getTemplates.');
                     }
                     localVarPath = "/template/find/{instance}"
                         .replace("{".concat("instance", "}"), encodeURIComponent(String(instance)));
@@ -159,7 +163,7 @@ var TemplateApiFp = function (configuration) {
          * Get templates
          * @summary Your GET endpoint
          * @param {string} instance Name of instance
-         * @param {string} [apikey] apikey from .env
+         * @param {string} apikey apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -194,7 +198,7 @@ var TemplateApiFactory = function (configuration, basePath, axios) {
          * Get templates
          * @summary Your GET endpoint
          * @param {string} instance Name of instance
-         * @param {string} [apikey] apikey from .env
+         * @param {string} apikey apikey from .env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -223,7 +227,7 @@ var TemplateApi = /** @class */ (function (_super) {
      * Get templates
      * @summary Your GET endpoint
      * @param {string} instance Name of instance
-     * @param {string} [apikey] apikey from .env
+     * @param {string} apikey apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TemplateApi

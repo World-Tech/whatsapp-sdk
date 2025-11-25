@@ -22,11 +22,11 @@ export declare const TemplateApiAxiosParamCreator: (configuration?: Configuratio
      * Get templates
      * @summary Your GET endpoint
      * @param {string} instance Name of instance
-     * @param {string} [apikey] apikey from .env
+     * @param {string} apikey apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTemplates: (instance: string, apikey?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getTemplates: (instance: string, apikey: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * TemplateApi - functional programming interface
@@ -37,11 +37,11 @@ export declare const TemplateApiFp: (configuration?: Configuration) => {
      * Get templates
      * @summary Your GET endpoint
      * @param {string} instance Name of instance
-     * @param {string} [apikey] apikey from .env
+     * @param {string} apikey apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTemplates(instance: string, apikey?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<TemplateDto>>>>;
+    getTemplates(instance: string, apikey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => Promise<AxiosResponse<Array<TemplateDto>>>>;
 };
 /**
  * TemplateApi - factory interface
@@ -52,11 +52,11 @@ export declare const TemplateApiFactory: (configuration?: Configuration, basePat
      * Get templates
      * @summary Your GET endpoint
      * @param {string} instance Name of instance
-     * @param {string} [apikey] apikey from .env
+     * @param {string} apikey apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTemplates(instance: string, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TemplateDto>>>;
+    getTemplates(instance: string, apikey: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TemplateDto>>>;
 };
 /**
  * TemplateApi - object-oriented interface
@@ -69,10 +69,10 @@ export declare class TemplateApi extends BaseAPI {
      * Get templates
      * @summary Your GET endpoint
      * @param {string} instance Name of instance
-     * @param {string} [apikey] apikey from .env
+     * @param {string} apikey apikey from .env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TemplateApi
      */
-    getTemplates(instance: string, apikey?: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TemplateDto>>>;
+    getTemplates(instance: string, apikey: string, options?: AxiosRequestConfig): Promise<AxiosResponse<Array<TemplateDto>>>;
 }
